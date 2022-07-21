@@ -249,7 +249,7 @@ class Demo extends Component {
         <h3>0 lazyRadius case: no catenary ui</h3>
         <CanvasDraw hideGrid lazyRadius={0} />
         <h3>clear mode</h3>
-        <CanvasDraw hideGrid lazyRadius={0} />
+        <CanvasDraw hideGrid lazyRadius={0} clearMode={true} />
       </div>
     );
   }
