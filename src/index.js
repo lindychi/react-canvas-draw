@@ -720,10 +720,12 @@ export default class CanvasDraw extends PureComponent {
     ctx.fill();
 
     // Draw mouse point (the one directly at the cursor)
-    ctx.beginPath();
-    ctx.fillStyle = this.props.catenaryColor;
-    ctx.arc(pointer.x, pointer.y, 4, 0, Math.PI * 2, true);
-    ctx.fill();
+    if (this.props.lazyRadius > 0) {
+      ctx.beginPath();
+      ctx.fillStyle = this.props.catenaryColor;
+      ctx.arc(pointer.x, pointer.y, 4, 0, Math.PI * 2, true);
+      ctx.fill();
+    }
 
     // Draw catenary
     if (this.lazy.isEnabled()) {
@@ -742,9 +744,11 @@ export default class CanvasDraw extends PureComponent {
     }
 
     // Draw brush point (the one in the middle of the brush preview)
-    ctx.beginPath();
-    ctx.fillStyle = this.props.catenaryColor;
-    ctx.arc(brush.x, brush.y, 2, 0, Math.PI * 2, true);
-    ctx.fill();
+    if (this.props.lazyRadius > 0) {
+      ctx.beginPath();
+      ctx.fillStyle = this.props.catenaryColor;
+      ctx.arc(brush.x, brush.y, 2, 0, Math.PI * 2, true);
+      ctx.fill();
+    }
   };
 }
